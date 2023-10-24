@@ -2515,7 +2515,20 @@ void OptionsUpdate(Camera2D* camera)
                 isHovering = false;
             }
         }
-
+        else
+        {
+            isDifficultyIncrementHovered = false;
+            isDifficultyDecrementHovered = false;
+            isResolutionIncrementHovered = false;
+            isResolutionDecrementHovered = false;
+            isFpsIncrementHovered = false;
+            isFpsDecrementHovered = false;
+            isMusicHovered = false;
+            isSoundFxHovered = false;
+            isFullscreenHovered = false;
+            isDebugHovered = false;
+            isBackHovered = false;
+        }
         if (firstRender)
             firstRender = false;
 
@@ -2732,7 +2745,7 @@ void GameUpdate(Camera2D *camera)
     Vector2 customer2Position = { baseX + 650, baseY + 100 };
     Vector2 customer3Position = { baseX + 1250, baseY + 100 };
 
-    Rectangle endScene = { 752, -532, 200, 70 };
+    Rectangle endScene = { 770, -500, 140, 70 };
 
     double initialReset[3];
     RandomCustomerInitialResetBasedOnDifficulty(&initialReset);
@@ -2969,7 +2982,7 @@ void GameUpdate(Camera2D *camera)
         if(options->difficulty == FREEPLAY_EASY || options->difficulty == FREEPLAY_MEDIUM || options->difficulty == FREEPLAY_HARD)
 		{
             DrawRectangleRec(endScene, RED);
-            DrawTextEx(meowFont, "End", (Vector2) { endScene.x + 40, endScene.y + 22 }, 32, 2, WHITE);
+            DrawTextEx(meowFont, "End", (Vector2) { endScene.x + 42, endScene.y + 22 }, 32, 2, WHITE);
 
 			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && (isendSceneHovered))
 			{
